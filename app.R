@@ -14,10 +14,10 @@ min.mpg <- min(mtcars$mpg)
 max.mpg <- max(mtcars$mpg)
 
 # Need a vector of axis variables as characters
-axis_vars <- names(diamonds)
+axis_vars <- names(mtcars)
 
 # Create a character vector of those columns of diamonds that are 
-factor.indices <- vapply(diamonds, is.factor, TRUE) # vapply is a base R function like sapply & lapply that we haven't talked about
+factor.indices <- vapply(mtcars, is.factor, TRUE) # vapply is a base R function like sapply & lapply that we haven't talked about
 # It applies a function (is.factor) to every element of a list (diamonds, remember that a data frame is a list)
 # The 'TRUE' is at the end to convey that we want vapply to return the results as a logical vector:
 #   I could just as well have used FALSE or c(TRUE, FALSE, TRUE) or any other logical vector
