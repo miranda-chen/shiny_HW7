@@ -1,18 +1,10 @@
 ####GEOL590 Class###
-### In-class Oct 23 - Intro to Shiny Part II ###
-
-# This is a Shiny web application. You can run the application by clicking
-# the 'Run App' button above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
-#
+### Homework 8 Shiny Application Practice ###
 
 library(shiny)
 library(tidyverse)
 
-#set slider range to the range of carats in the dataset
+#set slider range to the range of miles per gallon in the dataset
 min.mpg <- min(mtcars$mpg)
 max.mpg <- max(mtcars$mpg)
 
@@ -29,8 +21,8 @@ ui <- fluidPage(
                   "Miles per gallon",
                   min = min.mpg,
                   max = max.mpg,
-                  value = c(min.mpg, max.mpg)),
-      submitButton(text = "Go!") #can make it a range, two things to adjust, not just single value
+                  value = c(min.mpg, max.mpg)), #can make it a range, two things to adjust, not just single value
+                  submitButton(text = "Go!") #button to GO and generate a plot
     ),
     
     
@@ -41,7 +33,7 @@ ui <- fluidPage(
   )
 )
 
-# Define server logic required to draw a histogram
+# Define server logic required to draw a plot reactive to the slider bar
 server <- function(input, output) {
   
   #d_filt is a function
