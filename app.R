@@ -5,10 +5,10 @@ library(shiny)
 library(tidyverse)
 
 #set slider range to the range of miles per gallon in the dataset
-min.mpg <- min(mtcars$mpg)
+min.mpg <- min(mtcars$mpg) # assign objects first before beginning UI
 max.mpg <- max(mtcars$mpg)
 
-# Define UI for application that draws a histogram
+# Define UI for application that draws a histogram, UI deals with the look of the app
 ui <- fluidPage(
   
   # Application title
@@ -50,7 +50,7 @@ server <- function(input, output) {
   })
   
   output$mtcars_plot <- renderPlot({
-    ggplot(d_filt(), mapping = aes_string(x = "cyl", y = "hp", color = "vs")) + 
+    ggplot(d_filt(), mapping = aes_string(x = "cyl", y = "hp", color = "wt")) + 
       geom_point()
     
   })
